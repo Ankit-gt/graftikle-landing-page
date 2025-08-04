@@ -1,4 +1,8 @@
 /* Custom Styles */
+body {
+  background-color: #00364a;
+  
+}
 .gradient-bg {
   background: linear-gradient(135deg, #00364a 0%, #002736 100%);
 }
@@ -118,5 +122,23 @@
   z-index: -1;
   opacity: 0.3;
   animation: glow 3s ease-in-out infinite alternate;
+}
+
+/* Hair Loss Level Radio Button Styles */
+input[type="radio"]:checked + label > div {
+  border-color: #00364A !important;
+  background-color: #f0f9ff !important;
+  box-shadow: 0 4px 12px rgba(0, 54, 74, 0.15) !important;
+}
+
+input[type="radio"]:checked + label .absolute {
+  opacity: 1 !important;
+}
+
+/* Hair Loss Level Hover Effects */
+label:hover > div {
+  border-color: #00364A !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(0, 54, 74, 0.1) !important;
 }
 

@@ -1,0 +1,214 @@
+/* Testimonials Section Styles */
+.testimonials-section {
+    /* background-color: #f8fafc; */
+    position: relative;
+    overflow: hidden;
+}
+
+#testimonials {
+    padding: 4rem 2rem;
+    background-image: url('./assests/testimonials-bg.png');
+    background-size: cover;
+}
+.testimonials-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(
+        circle at 10% 90%,
+        rgba(0, 54, 74, 0.05) 0%,
+        transparent 50%
+    ),
+    radial-gradient(
+        circle at 90% 10%,
+        rgba(245, 158, 11, 0.05) 0%,
+        transparent 50%
+    );
+    z-index: 0;
+}
+
+.testimonial-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease, opacity 0.5s ease, transform 0.5s ease;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.testimonial-content {
+    position: relative;
+    padding: 2rem;
+}
+
+.testimonial-content::before {
+    content: '\201C';
+    position: absolute;
+    top: 0;
+    left: 1.5rem;
+    font-size: 5rem;
+    line-height: 1;
+    color: rgba(0, 54, 74, 0.1);
+    font-family: serif;
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: #4B5563;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #00364A;
+}
+
+.testimonial-info {
+    margin-left: 1rem;
+}
+
+.testimonial-name {
+    font-weight: 700;
+    color: #00364A;
+    margin-bottom: 0.25rem;
+}
+
+.testimonial-role {
+    font-size: 0.875rem;
+    color: #6B7280;
+}
+
+.testimonial-rating {
+    display: flex;
+    margin-top: 0.5rem;
+    color: #F59E0B;
+}
+
+/* Testimonial card variants */
+.testimonial-card.accent-primary {
+    border-top: 4px solid #00364A;
+}
+
+.testimonial-card.accent-secondary {
+    border-top: 4px solid #F59E0B;
+}
+
+.testimonial-card.accent-green {
+    border-top: 4px solid #10B981;
+}
+
+/* Animation for testimonials section */
+.fade-up-testimonial {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-up-testimonial.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation delay for testimonial cards */
+.testimonial-card:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.testimonial-card:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.testimonial-card:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+/* Testimonial navigation buttons */
+.testimonial-nav-button {
+    background-color: white;
+    border: 1px solid #E5E7EB;
+    color: #00364A;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-nav-button:hover {
+    background-color: #00364A;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Testimonial indicators (dots) */
+.testimonial-indicators {
+    display: flex;
+    justify-content: center;
+}
+
+.testimonial-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #E5E7EB;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.testimonial-indicator.active {
+    background-color: #00364A;
+    transform: scale(1.25);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .testimonial-content {
+        padding: 1.5rem;
+    }
+    
+    .testimonial-content::before {
+        font-size: 4rem;
+        left: 1rem;
+    }
+    
+    /* Mobile testimonial slider styles */
+    .testimonial-card {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.4s ease;
+    }
+    
+    .testimonial-card.active {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    /* Make navigation buttons more prominent on mobile */
+    .testimonial-nav-button {
+        width: 48px;
+        height: 48px;
+    }
+}
