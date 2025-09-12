@@ -1,0 +1,144 @@
+/* Treatment Options Styles */
+#treatments{
+    background-color: #649acf;
+}
+.treatment-option {
+    transition: all 0.3s ease;
+    width: 120px;
+    cursor: pointer;
+    position: relative;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.treatment-option:hover {
+    transform: translateY(-5px);
+    background-color: rgba(245, 158, 11, 0.05);
+}
+
+.treatment-option:hover .treatment-icon {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.treatment-icon {
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.treatment-option.active-treatment .treatment-icon,
+.treatment-option.active .treatment-icon {
+    background-color: #F59E0B; /* amber-500 */
+    box-shadow: 0 8px 15px rgba(245, 158, 11, 0.3);
+}
+
+.treatment-option.active-treatment .treatment-icon,
+.treatment-option.active .treatment-icon {
+    background-color: white;
+    box-shadow: 0 8px 15px rgba(128, 167, 246, 0.3);
+    border: 2px solid white;
+    transform: scale(1.05);
+}
+
+/* .treatment-option.active-treatment p,
+.treatment-option.active p {
+    color: #F59E0B; 
+    font-weight: 600;
+} */
+
+/* Active indicator */
+.treatment-option.active-treatment::after,
+.treatment-option.active::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    /* border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff; */
+    filter: drop-shadow(0 -1px 1px rgba(0, 0, 0, 0.1));
+}
+
+/* Treatment Detail Panel Animations */
+.treatment-detail-panel {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    border-radius: 12px;
+    border-left: 4px solid #F59E0B;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.treatment-detail-panel.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Treatment Details Container Animation */
+#treatment-details {
+    transition: all 0.5s ease;
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 2rem;
+}
+
+#treatment-details:not(.hidden) {
+    max-height: 1000px;
+    margin-bottom: 3rem;
+}
+
+/* Treatment detail panel content styling */
+.treatment-detail-panel h3 {
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.treatment-detail-panel h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #F59E0B, #FBBF24);
+    border-radius: 3px;
+}
+
+.treatment-detail-panel img {
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.treatment-detail-panel img:hover {
+    transform: scale(1.02);
+}
+
+/* Staggered animation delay for treatment options */
+.fade-up.treatment-option:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.fade-up.treatment-option:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.fade-up.treatment-option:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.fade-up.treatment-option:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+.fade-up.treatment-option:nth-child(5) {
+    transition-delay: 0.5s;
+}
+
+.fade-up.treatment-option:nth-child(6) {
+    transition-delay: 0.6s;
+}

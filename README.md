@@ -1,32 +1,33 @@
 # Graftikle Landing Page
 
-A modern, responsive landing page for Graftikle Hair Transplant services with a functional contact form that sends consultation requests via email.
+A modern, responsive landing page for Graftikle Hair Transplant services with a functional single-column consultation form that sends consultation requests via email using both server-side processing and mailto fallback.
 
 ## Features
 
 - **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
 - **Modern UI**: Clean, professional design with smooth animations
-- **Contact Form**: Comprehensive consultation request form with validation
-- **Email Integration**: Automatic email sending to the owner
+- **Single-Column Layout**: Streamlined consultation form with improved user experience
+- **Hair Loss Stage Selection**: Visual selection of baldness stages with images
+- **Server-Side Email Processing**: Node.js/Express server for reliable email delivery
+- **Mailto Fallback**: Automatic fallback to client-side email if server is unavailable
 - **Form Validation**: Client-side validation for all required fields
+- **Loading States**: Visual feedback during form submission
 - **Success/Error Handling**: User-friendly feedback messages
 
-## Contact Form Fields
+## Consultation Form Fields
 
-The contact form collects the following information:
+The consultation form collects the following information:
 
 ### Required Fields:
-- **First Name**: Client's first name
-- **Last Name**: Client's last name  
-- **Email Address**: Client's email for communication
-- **Phone Number**: Client's contact number
-- **Age**: Client's age (18-80 years)
-- **Hair Loss Type**: Type of hair loss condition
+- **Full Name**: Client's full name
+- **Age**: Client's age (18-100 years)
+- **Location**: Client's city or region
+- **Mobile Number**: Client's contact number
+- **Email ID**: Client's email for communication
+- **Hair Loss Level**: Visual selection of baldness stage (Stage 1-4)
 
 ### Optional Fields:
-- **Preferred Consultation Date**: When the client would like to schedule
-- **Previous Hair Loss Treatments**: Any treatments tried before
-- **Additional Information**: Additional details about concerns and goals
+- **Additional Information**: Any other details the client wishes to share
 
 ## Setup Instructions
 

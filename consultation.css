@@ -1,0 +1,196 @@
+/* Consultation Form Styles */
+
+/* Section Background */
+#consultation {
+  background-color: #f9fafb;
+  position: relative;
+  overflow: hidden;
+}
+
+#consultation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 10% 10%, rgba(0, 54, 74, 0.03) 0%, transparent 50%),
+                    radial-gradient(circle at 90% 90%, rgba(0, 54, 74, 0.03) 0%, transparent 50%);
+  z-index: 0;
+}
+
+#consultation .max-w-7xl {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure consistent height for all columns */
+#consultation .grid {
+  align-items: stretch;
+}
+
+#consultation .grid > div {
+  height: 100%;
+}
+
+/* Make the form section appear as a single unit */
+#consultation .fade-up-contact {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Form Elements */
+.baldness-option input[type="radio"]:checked + label > div {
+  border-color: var(--color-primary) !important;
+  background-color: #f0f9ff !important;
+  box-shadow: 0 4px 12px rgba(0, 54, 74, 0.15) !important;
+}
+
+.baldness-option input[type="radio"]:checked + label .absolute {
+  opacity: 1 !important;
+}
+
+/* Hair Loss Level Hover Effects */
+.baldness-option label:hover > div {
+  border-color: var(--color-primary) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(0, 54, 74, 0.1) !important;
+}
+
+/* Ensure consistent image display */
+.baldness-option img {
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+  border-radius: 4px;
+}
+
+/* Ensure grid items are consistent */
+.baldness-option {
+  display: flex;
+  flex-direction: column;
+}
+
+.baldness-option label {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.baldness-option label > div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Form Input Focus Styles */
+#consultation-form input:focus,
+#consultation-form textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 54, 74, 0.1);
+}
+
+/* Submit Button Hover Effect */
+#consultation-form button[type="submit"] {
+  transition: all .2s ease;
+}
+#consultation-form button[type="submit"]:hover {
+  /* background-color: var(--color-secondary); */
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 54, 74, 0.25);
+}
+#consultation-form button[type="submit"]:active {
+  transform: translateY(0) scale(0.99);
+  box-shadow: 0 6px 16px rgba(0, 54, 74, 0.18);
+}
+
+/* Popup (modal) selected stage indication */
+#consultation-modal label.baldness-option > div {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+#consultation-modal label.baldness-option:hover > div {
+  border-color: #00364A !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 54, 74, 0.1);
+}
+
+#consultation-modal label.baldness-option:has(input:checked) > div {
+  border-color: #00364A !important;
+  background-color: #f0f9ff;
+  box-shadow: 0 4px 12px rgba(0, 54, 74, 0.15);
+}
+
+#consultation-modal label.baldness-option:has(input:checked) > div::after {
+  content: "\2713"; /* checkmark */
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  background-color: #00364A;
+  color: #fff;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Responsive modal container: keep content within viewport */
+#consultation-modal > div {
+  max-height: none;
+  overflow: visible;
+}
+
+/* Reduce padding and gaps on small screens */
+@media (max-width: 480px) {
+  #consultation-modal .p-6 {
+    padding: 1rem; /* override Tailwind utility inside modal scope */
+  }
+  #consultation-modal .grid {
+    gap: 0.75rem; /* tighter gaps on very small screens */
+  }
+  #consultation-modal .baldness-option img {
+    height: 64px;
+    width: 64px;
+  }
+  #consultation-modal button[type="submit"] {
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  #consultation-modal .p-6 {
+    padding: 1.25rem;
+  }
+  #consultation-modal .baldness-option img {
+    height: 72px;
+    width: 72px;
+  }
+}
+
+@media (min-width: 769px) {
+  #consultation-modal .baldness-option img {
+    height: 80px;
+    width: 80px;
+  }
+}
+
+/* Animation Delays */
+.fade-up-contact:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.fade-up-contact:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.fade-up-contact:nth-child(3) {
+  animation-delay: 0.4s;
+}

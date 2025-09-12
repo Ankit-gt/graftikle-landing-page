@@ -1,54 +1,105 @@
-/* Services Section Styles */
-.service-card {
+/* Treatment Options Styles */
+.treatment-option {
     transition: all 0.3s ease;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    height: 100%;
+    width: 120px;
+    cursor: pointer;
+    position: relative;
 }
 
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(37, 35, 171, 0.45);
+.treatment-option:hover {
+    transform: translateY(-5px);
 }
 
-.service-image {
-    height: 200px;
-    object-fit: cover;
-    width: 100%;
+.treatment-option:hover .treatment-icon {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
-.service-title {
-    color: #00364A;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
+.treatment-option.active .treatment-icon {
+    background-color: #F59E0B; /* amber-500 */
+    box-shadow: 0 8px 15px rgba(245, 158, 11, 0.3);
 }
 
-.service-description {
-    color: #6B7280;
-    font-size: 0.95rem;
-    line-height: 1.5;
+.treatment-option.active .treatment-icon img {
+    filter: brightness(0) invert(1);
 }
 
-.service-card .learn-more {
-    color: #F59E0B;
+.treatment-option.active p {
+    color: #F59E0B; /* amber-500 */
     font-weight: 600;
-    display: inline-flex;
-    align-items: center;
+}
+
+/* Active indicator */
+.treatment-option.active::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+    filter: drop-shadow(0 -1px 1px rgba(0, 0, 0, 0.1));
+}
+
+/* Hair Loss Treatment Section Styles */
+.bg-white.rounded-lg.shadow-md {
     transition: all 0.3s ease;
 }
 
-.service-card .learn-more:hover {
-    color: #00364A;
+.bg-white.rounded-lg.shadow-md:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-.service-card .learn-more svg {
-    margin-left: 0.25rem;
-    transition: transform 0.3s ease;
+/* 3 Steps Section Styles */
+.bg-amber-100 {
+    position: relative;
+    overflow: hidden;
 }
 
-.service-card .learn-more:hover svg {
-    transform: translateX(4px);
+.bg-amber-100::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgba(251, 191, 36, 0.2);
+    z-index: 0;
+}
+
+.bg-amber-100::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(251, 191, 36, 0.15);
+    z-index: 0;
+}
+
+.bg-white.rounded-lg.p-6 {
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.bg-white.rounded-lg.p-6:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.w-16.h-16.bg-amber-50 {
+    transition: all 0.3s ease;
+}
+
+.bg-white.rounded-lg.p-6:hover .w-16.h-16.bg-amber-50 {
+    transform: scale(1.1);
+    background-color: rgba(251, 191, 36, 0.3);
 }
 
 /* Animation for services section */
@@ -63,19 +114,51 @@
     transform: translateY(0);
 }
 
-/* Staggered animation delay for cards */
-.service-card:nth-child(1) {
+/* Staggered animation delay for treatment options */
+.fade-up.treatment-option:nth-child(1) {
     transition-delay: 0.1s;
 }
 
-.service-card:nth-child(2) {
+.fade-up.treatment-option:nth-child(2) {
     transition-delay: 0.2s;
 }
 
-.service-card:nth-child(3) {
+.fade-up.treatment-option:nth-child(3) {
     transition-delay: 0.3s;
 }
 
-.service-card:nth-child(4) {
+.fade-up.treatment-option:nth-child(4) {
     transition-delay: 0.4s;
+}
+
+.fade-up.treatment-option:nth-child(5) {
+    transition-delay: 0.5s;
+}
+
+.fade-up.treatment-option:nth-child(6) {
+    transition-delay: 0.6s;
+}
+
+/* Treatment Detail Panel Animations */
+.treatment-detail-panel {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.treatment-detail-panel.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Treatment Details Container Animation */
+#treatment-details {
+    transition: all 0.3s ease;
+    max-height: 0;
+    overflow: hidden;
+}
+
+#treatment-details:not(.hidden) {
+    max-height: 1000px;
+    margin-bottom: 2rem;
 }

@@ -1,0 +1,786 @@
+/* Results Section - Before & After Design */
+
+/* Main Results Section */
+#results {
+  position: relative;
+  overflow: hidden;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+/* Results Info Section */
+.results-info {
+  animation: slideInLeft 0.8s ease-out;
+  z-index: 2;
+}
+
+.results-info h2 {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
+}
+
+/* CTA Button */
+.results-info button {
+  background: linear-gradient(135deg, #22d3ee, #06b6d4);
+  box-shadow: 0 8px 25px rgba(34, 211, 238, 0.3);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.results-info button:hover {
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+  box-shadow: 0 12px 35px rgba(34, 211, 238, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Feature Boxes */
+.feature-box {
+  background: rgba(34, 211, 238, 0.1);
+  border: 2px solid rgba(34, 211, 238, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+}
+
+
+.feature-box:hover {
+  background: rgba(34, 211, 238, 0.2);
+  border-color: rgba(34, 211, 238, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(34, 211, 238, 0.2);
+}
+
+/* Before & After Container */
+.before-after-container {
+  position: relative;
+  animation: slideInRight 0.8s ease-out;
+}
+
+.main-image-container {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  background: white;
+  padding: 8px;
+}
+
+.main-image {
+  width: 100%;
+  height: 400px;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.main-image:hover {
+  transform: scale(1.02);
+}
+
+/* UK Badge */
+.uk-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, #22d3ee, #06b6d4);
+  padding: 8px 16px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(34, 211, 238, 0.4);
+  z-index: 3;
+  transform: rotate(-5deg);
+}
+
+.uk-badge span {
+  font-size: 0.875rem;
+  font-weight: 800;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Before Images Overlay */
+.before-images-overlay {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 3;
+}
+
+.before-image-small {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 3px solid rgba(34, 211, 238, 0.8);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.before-image-small:hover {
+  transform: scale(1.1);
+  z-index: 4;
+}
+
+.before-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Grafts Info */
+.grafts-info {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, #22d3ee, #06b6d4);
+  padding: 8px 16px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(34, 211, 238, 0.4);
+  z-index: 3;
+}
+
+.grafts-info span {
+  font-size: 0.875rem;
+  font-weight: 800;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Slideshow Dots */
+.slideshow-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(34, 211, 238, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.dot.active {
+  background: #22d3ee;
+  transform: scale(1.2);
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.6);
+}
+
+.dot:hover {
+  background: rgba(34, 211, 238, 0.6);
+  transform: scale(1.1);
+}
+
+/* Achievement Stats Section - Horizontal Banner Style */
+.achievement-stats {
+  margin-top: 1rem;
+  padding: 1rem 0;
+ 
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.achievement-stats::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  
+}
+
+.achievement-stats::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  
+}
+
+.achievement-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.achievement-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.75rem 1.5rem;
+  flex: 1;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.achievement-item:hover {
+  transform: translateY(-4px);
+}
+
+.achievement-icon {
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+  stroke-width: 1.5;
+}
+
+.achievement-item:hover .achievement-icon {
+  transform: scale(1.1);
+}
+
+.achievement-text {
+  color: white;
+}
+
+.achievement-number {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #00364a;
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+.achievement-label {
+  font-size: 0.875rem;
+  color: #00364a;
+  font-weight: 500;
+  line-height: 1.3;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Achievement Dividers */
+.achievement-divider {
+  width: 1.75px;
+  height: 70px;
+  background-color:
+    #00346a;
+  margin: 0 1rem;
+  flex-shrink: 0;
+}
+
+/* Icon Text for Speech Bubble */
+.icon-text {
+  font-size: 10px;
+  font-weight: bold;
+  fill: #22d3ee;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .main-image {
+    height: 350px;
+  }
+  
+  .before-image-small {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .achievement-banner {
+    padding: 1.25rem 0;
+  }
+  
+  .achievement-item {
+    padding: 0.5rem 1rem;
+  }
+  
+  .achievement-number {
+    font-size: 1.125rem;
+  }
+  
+  .achievement-label {
+    font-size: 0.8rem;
+  }
+  
+  .feature-box {
+    min-height: 100px;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .results-info h2 {
+    font-size: 2.5rem;
+  }
+  
+  .main-image {
+    height: 350px;
+  }
+  
+  .before-images-overlay {
+    top: 15px;
+    right: 15px;
+    gap: 8px;
+  }
+  
+  .before-image-small {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .uk-badge,
+  .grafts-info {
+    padding: 6px 12px;
+  }
+  
+  .uk-badge span,
+  .grafts-info span {
+    font-size: 0.75rem;
+  }
+  
+  .feature-box {
+    padding: 1rem;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    height: 200px;
+    min-height: 80px;
+  } 
+  
+  .achievement-banner {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.5rem 1rem;
+  }
+  
+  .achievement-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(34, 211, 238, 0.3),
+      transparent
+    );
+    margin: 0.5rem 0;
+  }
+  
+  .achievement-item {
+    padding: 0.75rem;
+    flex-direction: row;
+    text-align: left;
+    width: 100%;
+  }
+  
+  .achievement-icon {
+    margin-bottom: 0;
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+  
+  .achievement-number {
+    font-size: 1.25rem;
+  }
+  
+  .achievement-label {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .results-info h2 {
+    font-size: 2rem;
+  }
+  
+  .main-image {
+    height: 300px;
+  }
+  
+  .before-images-overlay {
+    top: 10px;
+    right: 10px;
+    gap: 6px;
+  }
+  
+  .before-image-small {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .uk-badge,
+  .grafts-info {
+    padding: 4px 8px;
+  }
+  
+  .uk-badge span,
+  .grafts-info span {
+    font-size: 0.7rem;
+  }
+  
+  .feature-box {
+    padding: 0.75rem;
+    min-height: 60px;
+  }
+  
+  .achievement-banner {
+    padding: 1.25rem 0.5rem;
+  }
+  
+  .achievement-item {
+    padding: 0.75rem;
+  }
+  
+  .achievement-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .achievement-number {
+    font-size: 1rem;
+  }
+  
+  .achievement-label {
+    font-size: 0.75rem;
+  }
+}
+
+/* Additional Hover Effects */
+.main-image-container:hover .uk-badge {
+  transform: rotate(-5deg) scale(1.05);
+}
+
+.main-image-container:hover .grafts-info {
+  transform: scale(1.05);
+}
+
+/* Focus States for Accessibility */
+.dot:focus {
+  outline: 2px solid #22d3ee;
+  outline-offset: 2px;
+}
+
+/* Customer Experience Section */
+#customer-experience {
+  position: relative;
+  overflow: hidden;
+}
+
+.customer-story {
+  animation: slideInLeft 0.8s ease-out;
+  z-index: 2;
+}
+
+.customer-story h2 {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
+}
+
+.customer-story button {
+  background: linear-gradient(135deg, #22d3ee, #06b6d4);
+  box-shadow: 0 8px 25px rgba(34, 211, 238, 0.3);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.customer-story button:hover {
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+  box-shadow: 0 12px 35px rgba(34, 211, 238, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Video Section */
+.video-section {
+  animation: slideInRight 0.8s ease-out;
+  position: relative;
+  height: 500px;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Woman Image */
+.woman-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  z-index: 1;
+}
+
+.woman-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 20px 20px 0;
+}
+
+/* Video Thumbnail Overlay */
+.video-thumbnail-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 3;
+}
+
+.video-thumbnail {
+  width: 350px;
+  height: 250px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  border-top-left-radius: 60px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.video-thumbnail:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.video-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.play-button:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.play-button svg {
+  color: #22d3ee;
+  margin-left: 3px;
+}
+
+/* Experience Badge */
+.experience-badge {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #22d3ee, #06b6d4);
+  padding: 12px 20px;
+  border-radius: 25px;
+  box-shadow: 0 4px 15px rgba(34, 211, 238, 0.4);
+  z-index: 4;
+  animation: pulse 2s infinite;
+}
+
+.experience-badge span {
+  font-size: 0.875rem;
+  font-weight: 800;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design for Customer Experience */
+@media (max-width: 1024px) {
+  .video-section {
+    height: 400px;
+  }
+  
+  .woman-image {
+    width: 55%;
+  }
+  
+  .video-thumbnail {
+    width: 300px;
+    height: 200px;
+  }
+  
+  .play-button {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .play-button svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .customer-story h2 {
+    font-size: 2.5rem;
+  }
+  
+  .video-section {
+    height: 350px;
+  }
+  
+  .woman-image {
+    width: 50%;
+  }
+  
+  .video-thumbnail {
+    width: 250px;
+    height: 180px;
+  }
+  
+  .video-thumbnail-overlay {
+    bottom: 15px;
+    left: 15px;
+  }
+  
+  .play-button {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .play-button svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .experience-badge {
+    bottom: 15px;
+    right: 15px;
+    padding: 8px 16px;
+  }
+  
+  .experience-badge span {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .customer-story h2 {
+    font-size: 2rem;
+  }
+  
+  .video-section {
+    height: 300px;
+  }
+  
+  .woman-image {
+    width: 45%;
+  }
+  
+  .video-thumbnail {
+    width: 200px;
+    height: 140px;
+  }
+  
+  .video-thumbnail-overlay {
+    bottom: 10px;
+    left: 10px;
+  }
+  
+  .play-button {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .play-button svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .experience-badge {
+    bottom: 10px;
+    right: 10px;
+    padding: 6px 12px;
+  }
+  
+  .experience-badge span {
+    font-size: 0.7rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  #results {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .before-images-overlay,
+  .slideshow-dots {
+    display: none;
+  }
+  
+  .main-image-container {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  
+  .video-section {
+    display: none;
+  }
+}

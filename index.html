@@ -4,8 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Graftikle - Hair Solutions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="treatment-styles.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="testimonials.css" />
+    <link rel="stylesheet" href="faq-footer.css" />
+  <link rel="stylesheet" href="results.css" />
+  <link rel="stylesheet" href="consultation.css" />
+  <link rel="stylesheet" href="roadmap.css" />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -102,13 +110,16 @@
         },
       };
     </script>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="services.css" />
-    <link rel="stylesheet" href="testimonials.css" />
-    <link rel="stylesheet" href="faq-footer.css" />
-    <link rel="stylesheet" href="roadmap.css" />
+    <!-- EmailJS SDK (OWNER: keep or move to your bundler) -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function (){
+        emailjs.init("R2pIDhvz8zfAiju7f")
+      })();
+   </script>
   </head>
-  <body class="bg-gray-50 overflow-x-hidden">
+  <body class="overflow-x-hidden">
+      
     <!-- Navigation Bar -->
     <nav
       class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm"
@@ -132,36 +143,41 @@
               class="nav-link text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
               >Home</a
             >
-            <a
-              href="#About"
-              class="nav-link text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
-              >About
-            </a>
+           
             <a
               href="#Treatments"
               class="nav-link text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
               >Treatments</a
             >
             <a
-              href="#Results"
+              href="#results"
               class="nav-link text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
               >Results</a
             >
+            
             <a
-              href="#FAQs"
+              href="#testimonials"
+              class="nav-link text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
+            >Testimonials
+          </a>
+            <a
+              href="#faq "
               class="nav-link text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
               >FAQS</a
             >
             <a
-              href="#contact"
+              href="#consultation"
               class="nav-link text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
-              >Contact</a
+              >Consultation</a
             >
           </div>
 
           <!-- CTA Button -->
           <div class="hidden md:flex items-center space-x-3 animate-fade-in">
-            <button
+            <button 
+              onclick="window.location.href='#consultation'"
+
+
               class="cta-button-hover bg-primary hover:bg-secondary text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-md"
             >
               Book appointment
@@ -225,30 +241,32 @@
               class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
               >Home</a
             >
-            <a
-              href="#About"
-              class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
-              >About</a
-            >
+           
             <a
               href="#Treatments"
               class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
               >Treatments</a
             >
             <a
-              href="#Results"
+              href="#results"
               class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
               >Results</a
             >
+            
             <a
-              href="#FAQs"
+              href="#testimonials"
+              class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
+              >Testimonial</a
+            >
+            <a
+              href="#faq"
               class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
               >FAQS</a
             >
             <a
-              href="#contact"
+              href="#consultation"
               class="mobile-nav-link block px-3 py-2 text-gray-700 hover:text-primary transition-colors duration-300 font-medium"
-              >Contact</a
+              >Consultation</a
             >
             <div class="pt-4 pb-3 border-t border-gray-200">
               <div class="flex flex-col space-y-2">
@@ -278,7 +296,7 @@
     <!-- Hero Section -->
     <section id="home" class="min-h-screen bg-white relative overflow-hidden pt-16">
       <!-- Background Pattern -->
-      <div class="absolute inset-0 hero-pattern"></div>
+      <!-- <div class="absolute inset-0 hero-pattern"></div> -->
 
       <div class="relative z-10 flex items-center min-h-screen">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -319,12 +337,12 @@
             <!-- Left Content (Second on mobile) -->
             <div class="space-y-8 animate-slide-left order-2 lg:order-1">
               <!-- Badge -->
-              <div
+              <!-- <div
                 class="inline-flex items-center px-4 py-2 bg-blue-50 text-primary rounded-full text-sm font-medium"
               >
                 <span class="w-2 h-2 bg-primary rounded-full mr-2"></span>
                 Welcome to Graftikle
-              </div>
+              </div> -->
 
               <!-- Main Heading -->
               <div>
@@ -347,12 +365,15 @@
 
               <!-- CTA Buttons -->
               <div class="flex flex-col sm:flex-row gap-4">
-                <button
+                <button onclick="window.location.href='#consultation'"
+
                   class="bg-primary hover:bg-secondary text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                 >
                   Book appointment
                 </button>
-                <button
+                <button onclick="window.location.href='#footer'"
+
+
                   class="border-2 border-gray-300 text-gray-700 hover:border-primary hover:text-primary px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                 >
                   Contact us
@@ -418,111 +439,611 @@
             </div>
           </div>
         </div>
-      </div>     
+      </div>
     </section>
+   
+    
+
 
     <!-- Services Section -->
     <section id="Treatments" class="py-20 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
         <div class="text-center mb-16">
-          <div class="inline-flex items-center px-4 py-2 bg-blue-50 text-primary rounded-full text-sm font-medium mb-4">
-            <span class="w-2 h-2 bg-primary rounded-full mr-2"></span>
-            Our Services
-          </div>
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Advanced Hair Transplant Solutions</h2>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            We offer cutting-edge hair restoration techniques tailored to your unique needs
-          </p>
+          <span class="inline-block px-4 py-1 bg-amber-100 text-amber-600 rounded-full text-sm font-medium mb-4">Hair Solutions</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Treatment Options</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Explore our range of specialized treatments designed to address various hair loss concerns with proven results.</p>
         </div>
 
-        <!-- Services Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <!-- Service 1: DHI -->
-          <div class="service-card bg-white fade-up">
-            <div class="relative overflow-hidden">
-              <img src="assests/dhi.png" alt="DHI Hair Transplant" class="service-image">
+        <!-- Treatment Options Row -->
+        <div class="flex flex-wrap justify-center gap-8 mb-12 max-w-4xl mx-auto">
+          <!-- Treatment 1: DHI -->
+          <div class="text-center treatment-option" data-treatment="dhi">
+            <div class="w-24 h-24 mx-auto mb-4 bg-white rounded-lg shadow-md flex items-center justify-center treatment-icon">
+              <img src="assests/dhi.png" alt="DHI" class="w-12 h-12 object-contain transition-all duration-300">
             </div>
-            <div class="p-6">
-              <h3 class="service-title text-xl">DHI Technique</h3>
-              <p class="service-description mt-2 mb-4">
-                Direct Hair Implantation offers precise placement without incisions for natural-looking results with minimal recovery time.
-              </p>
-              <a href="#" class="learn-more">
-                Learn more
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </a>
-            </div>
+            <p class="font-medium text-gray-800">DHI</p>
           </div>
 
-          <!-- Service 2: Sapphire FUE -->
-          <div class="service-card bg-white fade-up">
-            <div class="relative overflow-hidden">
-              <img src="assests/saphire FUE.png" alt="Sapphire FUE Hair Transplant" class="service-image">
+          <!-- Treatment 2: Saphire FUE -->
+          <div class="text-center treatment-option" data-treatment="hair-thinning">
+            <div class="w-24 h-24 mx-auto mb-4 bg-white rounded-lg shadow-md flex items-center justify-center treatment-icon">
+              <img src="assests/saphire FUE.png" alt="Hair Thinning" class="w-12 h-12 object-contain transition-all duration-300">
             </div>
-            <div class="p-6">
-              <h3 class="service-title text-xl">Sapphire FUE</h3>
-              <p class="service-description mt-2 mb-4">
-                Advanced FUE technique using sapphire blades for more precise incisions, faster healing, and superior aesthetic results.
-              </p>
-              <a href="#" class="learn-more">
-                Learn more
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </a>
-            </div>
+            <p class="font-medium text-gray-800">Saphire FUE</p>
           </div>
 
-          <!-- Service 3: Beard Transplant -->
-          <div class="service-card bg-white fade-up">
-            <div class="relative overflow-hidden">
-              <img src="assests/beard_transplant.png" alt="Beard Transplant" class="service-image">
+          <!-- Treatment 3: beard transplant -->
+          <div class="text-center treatment-option" data-treatment="hairline-receding">
+            <div class="w-24 h-24 mx-auto mb-4 bg-white rounded-lg shadow-md flex items-center justify-center treatment-icon">
+              <img src="assests/beard_transplant.png" alt="Hairline Receding" class="w-12 h-12 object-contain transition-all duration-300">
             </div>
-            <div class="p-6">
-              <h3 class="service-title text-xl">Beard Transplant</h3>
-              <p class="service-description mt-2 mb-4">
-                Restore or enhance your beard with our specialized transplant techniques for a fuller, more defined facial hair appearance.
-              </p>
-              <a href="#" class="learn-more">
-                Learn more
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </a>
-            </div>
+            <p class="font-medium text-gray-800">Beard Transplant</p>
           </div>
 
-          <!-- Service 4: Women's Hair Transplant -->
-          <div class="service-card bg-white fade-up">
-            <div class="relative overflow-hidden">
-              <img src="assests/women_hair_transplant.png" alt="Women's Hair Transplant" class="service-image">
+          <!-- Treatment 4: womens hair transplant-->
+          <div class="text-center treatment-option" data-treatment="hair-shedding">
+            <div class="w-24 h-24 mx-auto mb-4 bg-white rounded-lg shadow-md flex items-center justify-center treatment-icon">
+              <img src="assests/women_hair_transplant.png" alt="Hair Shedding" class="w-12 h-12 object-contain transition-all duration-300">
             </div>
-            <div class="p-6">
-              <h3 class="service-title text-xl">Women's Hair Transplant</h3>
-              <p class="service-description mt-2 mb-4">
-                Specialized solutions for female pattern hair loss, addressing the unique needs and aesthetic goals of women.
-              </p>
-              <a href="#" class="learn-more">
-                Learn more
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </a>
+            <p class="font-medium text-gray-800">Womens Hair Transplant</p>
+          </div>
+
+          <!-- Treatment 5: Alopecia Areata -->
+          <div class="text-center treatment-option" data-treatment="alopecia-areata">
+            <div class="w-24 h-24 mx-auto mb-4 bg-white rounded-lg shadow-md flex items-center justify-center treatment-icon">
+              <img src="assests/Alopecia-areata.webp" alt="Alopecia Areata" class="w-12 h-12 object-contain transition-all duration-300">
             </div>
+            <p class="font-medium text-gray-800">Alopecia Areata</p>
+          </div>
+
+          <!-- Treatment 6: Biopsy -->
+          <!-- <div class="text-center treatment-option" data-treatment="biopsy">
+            <div class="w-24 h-24 mx-auto mb-4 bg-white rounded-lg shadow-md flex items-center justify-center treatment-icon">
+              <img src="assests/saphire FUE.png" alt="Biopsy" class="w-12 h-12 object-contain transition-all duration-300">
+            </div>
+            <p class="font-medium text-gray-800">Biopsy</p>
+          </div>
+        </div> -->
+        
+        <!-- Treatment Details Container -->
+        <div id="treatment-details" class="mb-16 hidden">
+          <!-- DHI Treatment Details -->
+          <div id="dhi-details" class="treatment-detail-panel bg-white rounded-lg shadow-md p-8 hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">DHI Technique</h3>
+                <p class="text-gray-600 mb-6">Direct Hair Implantation (DHI) is an advanced hair transplant technique that uses a specialized tool called a Choi Implanter Pen to directly implant hair follicles into the scalp without the need for pre-made recipient sites.</p>
+                
+                <div class="space-y-4">
+                  <div class="border-b border-gray-200 pb-4">
+                    <p class="font-medium text-gray-800">No need for recipient site creation</p>
+                  </div>
+                  <div class="border-b border-gray-200 pb-4">
+                    <p class="font-medium text-gray-800">Minimal trauma to the scalp</p>
+                  </div>
+                  <div class="border-b border-gray-200 pb-4">
+                    <p class="font-medium text-gray-800">Higher density and natural-looking results</p>
+                  </div>
+                </div>
+                
+                <button class="mt-6 bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300">
+                  Learn More About DHI
+                </button>
+              </div>
+              
+              <div class="flex justify-center">
+                <img src="assests/dhi.png" alt="DHI Technique" class="rounded-lg max-w-full h-auto">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Saphire FUE Treatment Details -->
+          <div id="hair-thinning-details" class="treatment-detail-panel bg-white rounded-lg shadow-md p-8 hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">SAPHIRE FUE</h3>
+                <p class="text-gray-600 mb-6">Sapphire FUE (Follicular Unit Extraction) is an advanced hair transplant technique that uses specialized sapphire blades instead of traditional steel tools to create micro-incisions in the scalp for hair follicle implantation.
+                  This method is designed to offer more precise, smaller incisions, leading to faster healing, reduced scarring, and more natural-looking results compared to standard FUE procedures</p>
+                
+                <div class="space-y-4">
+                  <div class="border-b border-gray-200 pb-4">
+                    <p class="font-medium text-gray-800">More precise, smaller incisions</p>
+                  </div>
+                  <div class="border-b border-gray-200 pb-4">
+                    <p class="font-medium text-gray-800">Faster healing and reduced scarring</p>
+                  </div>
+                  <div class="border-b border-gray-200 pb-4">
+                    <p class="font-medium text-gray-800">More natural-looking results</p>
+                  </div>
+                </div>
+                
+                <button class="mt-6 bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300">
+                  Explore Sapphire FUE Solutions
+                </button>
+              </div>
+              
+              <div class="flex justify-center">
+                <img src="assests/saphire FUE.png" alt="Saphire FUE Treatment" class="rounded-lg max-w-full h-auto">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Beard Transplant Treatment Details -->
+          <div id="hairline-receding-details" class="treatment-detail-panel bg-white rounded-lg shadow-md p-8 hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Beard Transplant Solutions</h3>
+                <p class="text-gray-600 mb-6">A beard transplant is a cosmetic surgical procedure designed to address patchy, thin, or absent facial hair by transplanting hair follicles to the beard area.
+                  This procedure is commonly sought by men who have genetic predispositions for sparse beard growth, scarring from injuries or burns, or those wishing to achieve a fuller, more defined beard.</p>
+                
+                <div class="space-y-4">
+                  <div class="border-b border-gray-200 pb-4">
+                    <p class="font-medium text-gray-800">Custom beard design</p>
+                  </div>
+                  <div class="border-b border-gray-200 pb-4">
+                    <p class="font-medium text-gray-800">Full Beard Coverage</p>
+                  </div>
+                  <div class="border-b border-gray-200 pb-4">
+                    <p class="font-medium text-gray-800">Natural Angle and Distribution Planning</p>
+                  </div>
+                </div>
+                
+                <button class="mt-6 bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300">
+                  Restore Your Beard
+                </button>
+              </div>
+              
+              <div class="flex justify-center">
+                <img src="assests/beard_transplant.png" alt="Beard Transplant Solutions" class="rounded-lg max-w-full h-auto">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Womens Hair Transplant Treatment Details -->
+          <div id="hair-shedding-details" class="treatment-detail-panel bg-white rounded-lg shadow-md p-8 hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Womens Hair Transplant Treatment</h3>
+                <p class="text-gray-600 mb-6">A women's hair transplant is a surgical procedure that involves transplanting hair follicles to the scalp to restore hair density and volume.
+                  This procedure is commonly sought by women who have genetic predispositions for thinning hair, scarring from injuries or burns, or those wishing to achieve a fuller, more defined hairline.</p>
+                
+                <div class="space-y-4">     
+                  <div class="border-b border-gray-200 pb-4">
+                    <p class="font-medium text-gray-800">Scalp Health Assessment</p>
+                  </div>
+                  <div class="border-b border-gray-200 pb-4">
+                    <p class="font-medium text-gray-800">Nutritional and Hormonal Evaluation</p>
+                  </div>
+                  <div class="border-b border-gray-200 pb-4">
+                    <p class="font-medium text-gray-800">Anti-shedding Treatments and Therapies</p>
+                  </div>
+                </div>
+                
+                <button class="mt-6 bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300">
+                  Stop Hair Shedding
+                </button>
+              </div>
+              
+              <!-- Womens Hair Transplant Treatment Details -->
+              <div class="flex justify-center">
+                <img src="assests/women_hair_transplant.png" alt="Hair Shedding Treatment" class="rounded-lg max-w-full h-auto">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Alopecia Areata Treatment Details -->
+           <div id="alopecia-areata-details" class="treatment-detail-panel bg-white rounded-lg shadow-md p-8 hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Alopecia Areata Treatment</h3>
+                <p class="text-gray-600 mb-6">Our specialized treatments for alopecia areata focus on managing this autoimmune condition with advanced therapies that stimulate hair regrowth in the affected patches.</p>
+                
+                <div class="space-y-4">
+                  <div class="border-b border-gray-200 pb-4">
+                    <p class="font-medium text-gray-800">Corticosteroid treatments</p>
+                  </div>
+                  <div class="border-b border-gray-200 pb-4">
+                    <p class="font-medium text-gray-800">Immunotherapy options</p>
+                  </div>
+                  <div class="border-b border-gray-200 pb-4">
+                    <p class="font-medium text-gray-800">Specialized topical solutions</p>
+                  </div>
+                </div>
+                
+                <button class="mt-6 bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300">
+                  Treat Alopecia Areata
+                </button>
+              </div>
+              
+              <div class="flex justify-center">
+                <img src="assests/Alopecia-areata.webp" alt="Alopecia Areata Treatment" class="rounded-lg max-w-full h-auto">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Biopsy Treatment Details -->
+          <!-- <div id="biopsy-details" class="treatment-detail-panel bg-white rounded-lg shadow-md p-8 hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Scalp Biopsy</h3>
+                <p class="text-gray-600 mb-6">Our minimally invasive scalp biopsy procedure helps diagnose the underlying causes of hair loss by examining scalp tissue samples under a microscope for accurate treatment planning.</p>
+                
+                <div class="space-y-4">
+                  <div class="border-b border-gray-200 pb-4">
+                    <p class="font-medium text-gray-800">Painless, quick procedure</p>
+                  </div>
+                  <div class="border-b border-gray-200 pb-4">
+                    <p class="font-medium text-gray-800">Detailed microscopic analysis</p>
+                  </div>
+                  <div class="border-b border-gray-200 pb-4">
+                    <p class="font-medium text-gray-800">Precise diagnosis for targeted treatment</p>
+                  </div>
+                </div>
+                
+                <button class="mt-6 bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300">
+                  Learn About Scalp Biopsy
+                </button>
+              </div>
+              
+              <div class="flex justify-center">
+                <img src="assests/saphire FUE.png" alt="Scalp Biopsy" class="rounded-lg max-w-full h-auto">
+              </div>
+            </div>
+          </div>
+        </div> --> 
+
+        
+          
           </div>
         </div>
 
-        <!-- CTA Button -->
-        <!-- <div class="text-center mt-12">
-          <button class="bg-primary hover:bg-secondary text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-            Book a Free Consultation
-          </button>
-        </div>  -->
+       
       </div>
     </section>
+
+    <section id="results" class="py-2 relative overflow-hidden">
+      <!-- Background Pattern -->
+      <!-- <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-400/20 to-teal-400/20"></div>
+      </div> -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-10">
+          <span class="inline-block px-4 py-1 bg-amber-100 text-amber-600 rounded-full text-sm font-medium mb-4">Results</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Patient Results</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Check out the amazing results our patients have achieved with our treatments.</p>
+         
+        </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <!-- Main Results Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          <!-- Left Side - Information -->
+          <div class="results-info text-white">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4"> Check Out These Amazing 'Before & After' Transformations!</h2>
+           
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg"> We absolutely love seeing these patient transformations before our eyes!</p>
+            
+            <!-- CTA Button -->
+            <div class="mb-8">
+              <button onclick="window.location.href='#consultation'" class="bg-cyan-400 hover:bg-cyan-300 text-teal-900 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-3">
+                This Could Be You
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Feature Boxes -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="feature-box">
+                <div class="text-xl font-bold text-cyan-400 mb-1">95% &nbsp; Growth Rate</div>
+                <!-- <div class="text-md text-cyan-300"></div> -->
+              </div>
+              <div class="feature-box">
+                <div class="text-xl font-bold text-cyan-400 mb-1">Natural Looking Results</div>
+                <!--  <div class="text-md text-cyan-300"></div> -->
+              </div>
+              <div class="feature-box">
+                <div class="text-xl font-bold text-cyan-400 mb-1">Above Average Hair Density</div>
+                <!-- <div class="text-md text-cyan-300"></div> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Side - Before & After Image -->
+          <div class="results-slideshow">
+            <div class="before-after-container">
+              <!-- Main After Image -->
+              <div class="main-image-container">
+                <img src="assests/doc-img.png" alt="After - Full Head of Hair" class="main-image">
+               
+              
+                
+                <!-- Grafts Info -->
+                <!-- <div class="grafts-info">
+                  <span class="text-white font-bold">3600 Grafts</span>
+                </div> -->
+              </div>
+              
+              <!-- Slideshow Navigation Dots -->
+              <div class="slideshow-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Achievement Stats Section -->
+        <div class="achievement-stats">
+          <div class="achievement-banner">
+            <!-- 9 Years Experience -->
+            <div class="achievement-item">
+              <div class="achievement-icon">
+                <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M8 12l2 2 4-4"/>
+                  <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20z"/>
+                  <circle cx="12" cy="12" r="2"/>
+                  <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+                  <path d="M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                </svg>
+              </div>
+              <div class="achievement-text">
+                    <div class="achievement-number">9 Years of Experience</div>
+                <!-- <div class="achievement-label"></div> -->
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="achievement-divider"></div>
+
+            <!-- 10,000+ Patients -->
+            <div class="achievement-item">
+              <div class="achievement-icon">
+                <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                  <text x="12" y="12" text-anchor="middle" dominant-baseline="middle" class="icon-text">66</text>
+                </svg>
+              </div>
+              <div class="achievement-text">
+                <div class="achievement-number">More Than 10.000 Satisfied Patients</div>
+                <!-- <div class="achievement-label"></div> -->
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="achievement-divider"></div>
+
+            <!-- Best Doctor -->
+            <div class="achievement-item">
+              <div class="achievement-icon">
+                <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  <path d="M12 2l2.5 5.5L20 9.5l-4.5 4.5L12 22l-3.5-8L4 9.5l5.5-2L12 2z"/>
+                </svg>
+              </div>
+              <div class="achievement-text">
+                <div class="achievement-number">India's Best Hair Transplant Doctor</div>
+                <!-- <div class="achievement-label"></div> -->
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="achievement-divider"></div>
+
+            <!-- Society Member -->
+            <div class="achievement-item">
+              <div class="achievement-icon">
+                <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                  <path d="M8 12h8M12 8v8"/>
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M12 1v2M12 21v2M1 12h2M21 12h2"/>
+                </svg>
+              </div>
+              <div class="achievement-text">
+                <div class="achievement-number">Member of the Society of Dermatology</div>
+                <!-- <div class="achievement-label"></div> -->
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="achievement-divider"></div>
+
+            <!-- Groundbreaking Tech -->
+            <div class="achievement-item">
+              <div class="achievement-icon">
+                <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  <path d="M12 2l2.5 5.5L20 9.5l-4.5 4.5L12 22l-3.5-8L4 9.5l5.5-2L12 2z"/>
+                  <circle cx="12" cy="12" r="2"/>
+                </svg>
+              </div>
+              <div class="achievement-text">
+                <div class="achievement-number">Groundbreaking Technologies</div>
+                <!-- <div class="achievement-label"></div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <!-- Customer Experience Section -->
+     <section id="customer-experience" class=" bg-gradient-to-br from-teal-900 via-teal-800 to-teal-900 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Left Side - Customer Story -->
+          <div class="customer-story text-white">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              Dante's Hair Transplant Journey
+            </h2>
+            <p class="text-lg text-gray-200 mb-8 leading-relaxed max-w-lg">
+              The famous American singer Dante Thomas a.k.a Mr. California, came to Istanbul to Dr. Serkan Aygin Clinic to undergo hair transplantation and 'to be part of this amazing experience' as he explains in his own words! We are so happy and honored he chose us for being part of his wonderful journey!
+            </p>
+            <button onclick="window.location.href='#consultation'" class="bg-cyan-400 hover:bg-cyan-300 text-teal-900 px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-3">
+              Contact Us Today
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Right Side - Video with Overlay -->
+          <div class="video-section relative">
+            <div class="video-container">
+              <!-- Main Woman Image -->
+              <div class="woman-image">
+                <img src="assests/doc-img.png" alt="Happy Customer" class="woman-photo">
+              </div>
+              
+              <!-- Video Thumbnail Overlay -->
+              <div class="video-thumbnail-overlay">
+                <div class="video-thumbnail">
+                  <img src="assests/saphire FUE.png" alt="Hair Transplant Process" class="video-preview">
+                  <div class="play-button">
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Experience Badge -->
+              <div class="experience-badge">
+                <span class="text-white font-bold">9 Years of Experience</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Roadmap Section -->
+   <!-- Paste this entire block in place of your old roadmap section -->
+<section id="roadmap" class="py-20 roadmap-section relative overflow-visible">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="inline-block px-4 py-1 bg-amber-100 text-amber-600 rounded-full text-sm font-medium mb-4">Treatment Journey</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Your Hair Treatment Roadmap</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">Follow the guided steps from consultation to aftercare, all streamlined for best results.</p>
+    </div>
+
+    <div class="roadmap-wrapper">
+      <div class="grid-bg" aria-hidden="true"></div>
+
+      <!-- SVG: keep a viewBox (we use 1200x350). Path has id="roadPath" -->
+      <svg class="road-svg" viewBox="0 0 1200 350" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <path id="roadPath" class="road-stroke" d="M20,300 C220,80 420,80 620,300 S1020,520 1180,200"/>
+        <path class="road-dash" d="M20,300 C220,80 420,80 620,300 S1020,520 1180,200"/>
+      </svg>
+
+      <!-- STEP CARDS: data-t is fraction (0..1) of length along the path -->
+      <div class="roadmap-steps" aria-hidden="false">
+        <div class="road-step" data-t="0.02">
+          <div class="step-badge">1</div>
+          <h4 class="step-title">Consultation</h4>
+          <!-- <p class="step-desc">Meet our specialist to assess your goals and scalp condition.</p> -->
+        </div>
+
+        <div class="road-step" data-t="0.22">
+          <div class="step-badge">2</div>
+          <h4 class="step-title">Diagnosis</h4>
+          <!-- <p class="step-desc">Digital analysis to determine the optimal technique and grafts.</p> -->
+        </div>
+
+        <div class="road-step" data-t="0.40">
+          <div class="step-badge">3</div>
+          <h4 class="step-title">Planning</h4>
+          <!-- <p class="step-desc">Customized hairline design and density planning.</p> -->
+        </div>
+
+        <div class="road-step" data-t="0.60">
+          <div class="step-badge">4</div>
+          <h4 class="step-title">Procedure</h4>
+          <!-- <p class="step-desc">DHI/FUE performed with precision and comfort.</p> -->
+        </div>
+
+        <div class="road-step" data-t="0.78">
+          <div class="step-badge">5</div>
+          <h4 class="step-title">Recovery</h4>
+          <!-- <p class="step-desc">Guided recovery with dedicated care instructions.</p> -->
+        </div>
+
+        <div class="road-step" data-t="0.95">
+          <div class="step-badge">6</div>
+          <h4 class="step-title">Aftercare</h4>
+          <!-- <p class="step-desc">Follow-ups and growth tracking for optimal results.</p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Position steps exactly along the SVG path using getPointAtLength
+  (function () {
+    const svg = document.querySelector('.road-svg');
+    const path = svg && svg.querySelector('#roadPath');
+    const wrapper = document.querySelector('.roadmap-wrapper');
+    const steps = Array.from(document.querySelectorAll('.road-step'));
+
+    if (!svg || !path || !wrapper || !steps.length) return;
+
+    function placeSteps() {
+      // Recalculate bounding rectangles and CTM each time (responsive)
+      const wrapperRect = wrapper.getBoundingClientRect();
+      const svgCTM = svg.getScreenCTM();
+
+      // total length of the path in SVG user units
+      const total = path.getTotalLength();
+
+      steps.forEach(step => {
+        const t = parseFloat(step.dataset.t) || 0; // fraction along path 0..1
+        const length = Math.max(0, Math.min(1, t)) * total;
+        const p = path.getPointAtLength(length);
+
+        // Convert SVG user coords to screen coords robustly
+        const svgPoint = svg.createSVGPoint();
+        svgPoint.x = p.x;
+        svgPoint.y = p.y;
+        const screenPoint = svgPoint.matrixTransform(svgCTM);
+
+        // compute left/top relative to wrapper
+        const stepRect = step.getBoundingClientRect();
+        const left = screenPoint.x - wrapperRect.left - stepRect.width / 2;
+        const top = screenPoint.y - wrapperRect.top - stepRect.height - 12; // 12px gap for the dot
+
+        // apply styles
+        step.style.left = Math.round(left) + 'px';
+        step.style.top = Math.round(top) + 'px';
+      });
+    }
+
+    // Debounce helper
+    function debounce(fn, wait = 80){
+      let t;
+      return function(){ clearTimeout(t); t = setTimeout(fn, wait); };
+    }
+
+    // initial position and on resize/orientation change
+    document.fonts && document.fonts.ready ? document.fonts.ready.then(placeSteps) : placeSteps();
+    window.addEventListener('resize', debounce(placeSteps, 100));
+    window.addEventListener('orientationchange', debounce(placeSteps, 120));
+    // If images/styles/fonts load late, also reposition after load
+    window.addEventListener('load', () => setTimeout(placeSteps, 60));
+  })();
+</script>
+
+
+
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="py-20 testimonials-section">
@@ -539,10 +1060,10 @@
           </p>
         </div>
 
-        <!-- Testimonials Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimonials Carousel -->
+        <div class="testimonials-carousel relative">
           <!-- Testimonial 1 -->
-          <div class="testimonial-card accent-primary fade-up-testimonial">
+          <div class="testimonial-card accent-primary fade-up-testimonial active">
             <div class="testimonial-content">
               <p class="testimonial-text">
                 "After years of struggling with hair loss, I finally decided to get a hair transplant at Graftikle. The results exceeded my expectations! The procedure was painless and the recovery was quick. I now have a full head of hair that looks completely natural."
@@ -577,7 +1098,7 @@
           </div>
 
           <!-- Testimonial 2 -->
-          <div class="testimonial-card accent-secondary fade-up-testimonial">
+          <div class="testimonial-card accent-secondary">
             <div class="testimonial-content">
               <p class="testimonial-text">
                 "The Sapphire FUE technique at Graftikle gave me incredible results. The staff was professional and caring throughout the entire process. It's been 8 months since my procedure, and my hair looks fuller and more natural than I ever imagined possible."
@@ -612,7 +1133,7 @@
           </div>
 
           <!-- Testimonial 3 -->
-          <div class="testimonial-card accent-green fade-up-testimonial">
+          <div class="testimonial-card accent-green">
             <div class="testimonial-content">
               <p class="testimonial-text">
                 "As a woman dealing with hair thinning, I was hesitant about getting a hair transplant. The team at Graftikle understood my concerns and provided a customized solution. The results are subtle yet significant, and I've regained my confidence."
@@ -648,40 +1169,36 @@
         </div>
 
         <!-- Navigation Buttons and Indicators -->
-        <div class="flex flex-col items-center mt-12">
+        <div class="flex flex-col items-center">
+          <!-- Navigation Buttons -->
+          <div class="flex items-center justify-center space-x-8 mb-6">
+            <button class="testimonial-nav-button prev-testimonial" aria-label="Previous testimonial">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button class="testimonial-nav-button next-testimonial" aria-label="Next testimonial">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+          
           <!-- Testimonial Indicators (dots) -->
-          <div class="testimonial-indicators flex space-x-2 mb-4 md:hidden">
+          <div class="testimonial-indicators flex space-x-4">
             <span class="testimonial-indicator active" data-index="0"></span>
             <span class="testimonial-indicator" data-index="1"></span>
             <span class="testimonial-indicator" data-index="2"></span>
           </div>
-          
-          <!-- Navigation Buttons -->
-          <!-- <div class="flex justify-center space-x-4">
-            <button class="testimonial-nav-button" aria-label="Previous testimonial">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
-              </svg>
-            </button>
-            <button class="testimonial-nav-button" aria-label="Next testimonial">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-              </svg>
-            </button>
-          </div>
-        </div> -->
-
-        <!-- CTA Button -->
-        <!-- <div class="text-center mt-12">
-          <button class="bg-primary hover:bg-secondary text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-            Schedule Your Free Consultation
-          </button>
         </div>
-      </div> -->
     </section>
-    </section>
-    <!-- Footer -->
-        <!-- FAQ Section -->
+
+    <!-- Results Section -->
+   
+
+   
+
+    <!-- FAQ Section -->
     <section id="faq" class="py-20 faq-section">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
@@ -776,8 +1293,163 @@
       </div>
     </section>
 
+    <!-- Consultation Form Section -->
+    <section id="consultation" class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center px-4 py-2 bg-blue-50 text-primary rounded-full text-sm font-medium mb-4">
+            <span class="w-2 h-2 bg-primary rounded-full mr-2"></span>
+            Quick Consultation
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get Your Personalized Hair Solution</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Fill out this form for a free consultation and take the first step towards restoring your confidence
+          </p>
+        </div>
+
+        <!-- Consultation Form - Single Column -->
+        <div class="max-w-2xl mx-auto">
+          <div class="fade-up-contact bg-white rounded-xl shadow-lg p-8">
+            <!-- Doctor Info and Benefits - Top Section -->
+            <!-- <div class="flex flex-col md:flex-row items-center mb-8 pb-8 border-b border-gray-200">
+              <div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden flex-shrink-0 mb-4 md:mb-0 md:mr-6">
+                <img src="assests/doc-img.png" alt="Hair Transplant Specialist" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Dr. John Smith</h3>
+                <p class="text-gray-600 mb-3">Hair Restoration Specialist with over 10 years of experience</p>
+                <div class="flex items-center text-amber-500 mb-4">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <span class="ml-2 text-gray-600">500+ successful procedures</span>
+                </div>
+                <p class="text-gray-700 italic">"Our mission is to restore not just your hair, but your confidence and quality of life."</p>
+              </div>
+            </div> -->
+
+            <!-- Consultation Form -->
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">Take an Appointment</h3>
+            <form id="consultation-form" class="space-y-4">
+              <!-- Name Field -->
+              <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required>
+              </div>
+
+              <!-- Two Column Layout for Age and Location -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Age Field -->
+                <div>
+                  <label for="age" class="block text-sm font-medium text-gray-700 mb-1">Age</label>
+                  <input type="number" id="age" name="age" min="18" max="100" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required>
+                </div>
+
+                <!-- Location Field -->
+                <div>
+                  <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                  <input type="text" id="location" name="location" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required>
+                </div>
+              </div>
+
+              <!-- Two Column Layout for Phone and Email -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Mobile Number Field -->
+                <div>
+                  <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Mobile Number</label>
+                  <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required>
+                </div>
+
+                <!-- Email Field -->
+                <div>
+                  <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email ID</label>
+                  <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required>
+                </div>
+              </div>
+
+              <!-- Hair Loss Level -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-3">Hair Loss Level</label>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <!-- Stage 1 -->
+                  <div class="baldness-option">
+                    <input type="radio" id="stage1" name="hairLossLevel" value="Stage 1" class="hidden" checked>
+                    <label for="stage1" class="cursor-pointer">
+                      <div class="border-2 border-gray-200 rounded-lg p-3 transition-all duration-300 hover:shadow-md relative">
+                        <img src="assests/Hair-Loss-Stages (1).jpg" alt="Stage 1 Hair Loss" class="w-full h-auto object-cover aspect-square">
+                        <div class="mt-2 text-center text-sm font-medium">Stage 1</div>
+                        <div class="absolute top-2 right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white opacity-0 transition-opacity duration-300">
+                          <i class="fas fa-check text-xs"></i>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                  
+                  <!-- Stage 2 -->
+                  <div class="baldness-option">
+                    <input type="radio" id="stage2" name="hairLossLevel" value="Stage 2" class="hidden">
+                    <label for="stage2" class="cursor-pointer">
+                      <div class="border-2 border-gray-200 rounded-lg p-3 transition-all duration-300 hover:shadow-md relative">
+                        <img src="assests/Hair-Loss-Stages (2).jpg" alt="Stage 2 Hair Loss" class="w-full h-auto object-cover aspect-square">
+                        <div class="mt-2 text-center text-sm font-medium">Stage 2</div>
+                        <div class="absolute top-2 right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white opacity-0 transition-opacity duration-300">
+                          <i class="fas fa-check text-xs"></i>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                  
+                  <!-- Stage 3 -->
+                  <div class="baldness-option">
+                    <input type="radio" id="stage3" name="hairLossLevel" value="Stage 3" class="hidden">
+                    <label for="stage3" class="cursor-pointer">
+                      <div class="border-2 border-gray-200 rounded-lg p-3 transition-all duration-300 hover:shadow-md relative">
+                        <img src="assests/Hair-Loss-Stages (3).jpg" alt="Stage 3 Hair Loss" class="w-full h-auto object-cover aspect-square">
+                        <div class="mt-2 text-center text-sm font-medium">Stage 3</div>
+                        <div class="absolute top-2 right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white opacity-0 transition-opacity duration-300">
+                          <i class="fas fa-check text-xs"></i>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                  
+                  <!-- Stage 4 -->
+                  <div class="baldness-option">
+                    <input type="radio" id="stage4" name="hairLossLevel" value="Stage 4" class="hidden">
+                    <label for="stage4" class="cursor-pointer">
+                      <div class="border-2 border-gray-200 rounded-lg p-3 transition-all duration-300 hover:shadow-md relative">
+                          <img src="assests/Hair-Loss-Stages (4).jpg" alt="Stage 4 Hair Loss" class="w-full h-auto object-cover aspect-square">
+                        <div class="mt-2 text-center text-sm font-medium">Stage 4</div>
+                        <div class="absolute top-2 right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white opacity-0 transition-opacity duration-300">
+                          <i class="fas fa-check text-xs"></i>
+                        </div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Additional Information -->
+              <!-- <div>
+                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Additional Information (Optional)</label>
+                <textarea id="message" name="message" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"></textarea>
+              </div> -->
+
+              <!-- Submit Button -->
+              <button type="submit" class="w-full bg-primary hover:bg-secondary text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md">
+                Submit Consultation Request
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="footer">
+    <footer id="footer" class="footer">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <!-- Column 1: About & Logo -->
@@ -865,8 +1537,8 @@
           <!-- Column 4: Map -->
           <div class="footer-col fade-up-footer">
             <h3 class="footer-heading text-xl">Find Us</h3>
-            <div class="map-container mt-4"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7563.010632570111!2d73.773031!3d18.596328!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b9cd63c50743%3A0xd03f2130682c3e9d!2sSkin%20and%20Scalps%20Clinic!5e0!3m2!1sen!2sin!4v1754308286628!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-             
+            <div class="map-container mt-4">
+             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.5053185057204!2d73.77303069999999!3d18.5963279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b9cd63c50743%3A0xd03f2130682c3e9d!2sSkin%20and%20Scalps%20Clinic!5e0!3m2!1sen!2sin!4v1754401863766!5m2!1sen!2sin" width=full height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>
@@ -877,6 +1549,91 @@
         </div>
       </div>
     </footer>
+
+
+      
+  
+
+    <!-- Consultation Modal -->
+    <div id="consultation-modal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[9999]">
+      <div class="relative bg-white w-full max-w-2xl rounded-xl shadow-2xl mx-4">
+        <button id="close-consultation-modal" aria-label="Close"
+          class="absolute -top-3 -right-3 bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-700">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <div class="p-6">
+          <div class="text-center mb-6">
+            <div class="inline-flex items-center px-4 py-2 bg-blue-50 text-primary rounded-full text-sm font-medium mb-4">
+              <span class="w-2 h-2 bg-primary rounded-full mr-2"></span>
+              Quick Consultation
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900">Take an Appointment</h3>
+          </div>
+          <form id="consultation-form-modal" class="space-y-4" data-consultation="true">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+              <input type="text" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Age</label>
+                <input type="number" name="age" min="18" max="100" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                <input type="text" name="location" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Mobile Number</label>
+                <input type="tel" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Email ID</label>
+                <input type="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required>
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-3">Hair Loss Level</label>
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <label class="baldness-option cursor-pointer">
+                  <div class="border-2 border-gray-200 rounded-lg p-3 transition-all duration-300 hover:shadow-md relative">
+                    <img src="assests/Hair-Loss-Stages (1).jpg" alt="Stage 1 Hair Loss" class="w-full h-auto object-cover aspect-square">
+                    <div class="mt-2 text-center text-sm font-medium">Stage 1</div>
+                  </div>
+                  <input type="radio" name="hairLossLevel" value="Stage 1" class="hidden" checked>
+                </label>
+                <label class="baldness-option cursor-pointer">
+                  <div class="border-2 border-gray-200 rounded-lg p-3 transition-all duration-300 hover:shadow-md relative">
+                    <img src="assests/Hair-Loss-Stages (2).jpg" alt="Stage 2 Hair Loss" class="w-full h-auto object-cover aspect-square">
+                    <div class="mt-2 text-center text-sm font-medium">Stage 2</div>
+                  </div>
+                  <input type="radio" name="hairLossLevel" value="Stage 2" class="hidden">
+                </label>
+                <label class="baldness-option cursor-pointer">
+                  <div class="border-2 border-gray-200 rounded-lg p-3 transition-all duration-300 hover:shadow-md relative">
+                    <img src="assests/Hair-Loss-Stages (3).jpg" alt="Stage 3 Hair Loss" class="w-full h-auto object-cover aspect-square">
+                    <div class="mt-2 text-center text-sm font-medium">Stage 3</div>
+                  </div>
+                  <input type="radio" name="hairLossLevel" value="Stage 3" class="hidden">
+                </label>
+                <label class="baldness-option cursor-pointer">
+                  <div class="border-2 border-gray-200 rounded-lg p-3 transition-all duration-300 hover:shadow-md relative">
+                    <img src="assests/Hair-Loss-Stages (4).jpg" alt="Stage 4 Hair Loss" class="w-full h-auto object-cover aspect-square">
+                    <div class="mt-2 text-center text-sm font-medium">Stage 4</div>
+                  </div>
+                  <input type="radio" name="hairLossLevel" value="Stage 4" class="hidden">
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="w-full bg-primary hover:bg-secondary text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md">Submit Consultation Request</button>
+          </form>
+        </div>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
