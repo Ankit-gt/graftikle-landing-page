@@ -1,18 +1,18 @@
 # Graftikle Landing Page
 
-A modern, responsive landing page for Graftikle Hair Transplant services with a functional single-column consultation form that sends consultation requests via email using both server-side processing and mailto fallback.
+A modern, responsive landing page for Graftikle Hair Transplant services. The site includes a consultation form (section and popup modal), dynamic results slideshow, and smooth interactions.
 
 ## Features
 
-- **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
-- **Modern UI**: Clean, professional design with smooth animations
-- **Single-Column Layout**: Streamlined consultation form with improved user experience
-- **Hair Loss Stage Selection**: Visual selection of baldness stages with images
-- **Server-Side Email Processing**: Node.js/Express server for reliable email delivery
-- **Mailto Fallback**: Automatic fallback to client-side email if server is unavailable
-- **Form Validation**: Client-side validation for all required fields
-- **Loading States**: Visual feedback during form submission
-- **Success/Error Handling**: User-friendly feedback messages
+- **Responsive Design**: Works on desktop, tablet, and mobile
+- **Modern UI**: Clean design with smooth animations
+- **Consultation Form (Section + Modal)**: Same fields available both inline and as a popup on load
+- **Hair Loss Stage Selection**: Visual stage cards with selected state indicator
+- **EmailJS Integration**: Client-side email sending (no backend needed)
+- **Form Validation & Feedback**: Required fields + loading/success/error states
+- **Results Slideshow**: Uses optimized `patient_results1.webp` … `patient_results4.webp`
+- **Mobile Menu UX**: Auto-closes after selecting a menu item
+- **Start at Home**: Always returns to the first section on reload
 
 ## Consultation Form Fields
 
@@ -31,57 +31,20 @@ The consultation form collects the following information:
 
 ## Setup Instructions
 
-### 1. Install Dependencies
+This is a static site. You can open `index.html` directly or serve locally.
 
+### Option A: Open directly
+- Open `index.html` in a modern browser.
+
+### Option B: Serve locally (recommended for routing/assets)
 ```bash
-npm install
+npx serve .
 ```
 
-### 2. Configure Email Settings
-
-You have several options for email configuration:
-
-#### Option A: Using Gmail (Recommended for testing)
-
-1. Create a `.env` file in the root directory:
-```env
-EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=your-app-password
-OWNER_EMAIL=owner@graftikle.com
-```
-
-2. For Gmail, you'll need to:
-   - Enable 2-factor authentication
-   - Generate an "App Password" (not your regular password)
-   - Use the app password in the EMAIL_PASS field
-
-#### Option B: Using Other Email Services
-
-Edit the `server.js` file and modify the transporter configuration:
-
-```javascript
-const transporter = nodemailer.createTransporter({
-  service: 'outlook', // or 'yahoo', 'hotmail', etc.
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  }
-});
-```
-
-#### Option C: Using Custom SMTP
-
-```javascript
-const transporter = nodemailer.createTransporter({
-  host: 'your-smtp-host.com',
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  }
-});
-```
+### Configure Email (EmailJS)
+The modal and section forms are wired to EmailJS. Update the IDs/keys in `index.html` and `script.js` if you need to use your own account:
+- EmailJS init key in `index.html`
+- Service/template/public keys in `script.js`
 
 ### 3. Update Owner Email
 
@@ -91,19 +54,7 @@ In the `server.js` file, change the `OWNER_EMAIL` environment variable or direct
 to: process.env.OWNER_EMAIL || 'owner@graftikle.com'
 ```
 
-### 4. Start the Server
-
-#### Development Mode (with auto-restart):
-```bash
-npm run dev
-```
-
-#### Production Mode:
-```bash
-npm start
-```
-
-The server will start on `http://localhost:3000`
+No server is required for EmailJS. If you later add a backend, document it here.
 
 ## Email Template
 
@@ -120,11 +71,7 @@ The system sends beautifully formatted HTML emails containing:
 If you prefer not to use the Node.js server, you can use these alternatives:
 
 ### 1. EmailJS (Client-side)
-
-1. Sign up at [EmailJS](https://www.emailjs.com/)
-2. Create an email service and template
-3. Uncomment the EmailJS code in `script.js`
-4. Replace the placeholder credentials with your actual EmailJS credentials
+Already integrated. Replace keys in `index.html` and `script.js`.
 
 ### 2. Formspree
 
@@ -143,9 +90,8 @@ If you prefer not to use the Node.js server, you can use these alternatives:
 ```
 graftikle-landing-page/
 ├── index.html          # Main landing page
-├── styles.css          # Custom styles
+├── styles.css          # Global custom styles (centering fixes)
 ├── script.js           # JavaScript functionality
-├── server.js           # Node.js server for email
 ├── package.json        # Dependencies
 ├── README.md           # This file
 └── assests/
@@ -167,7 +113,10 @@ To add or modify form fields:
 3. Update the email template in `server.js`
 
 ### Styling
-All styling is done with Tailwind CSS classes. Custom styles are in `styles.css`.
+Tailwind utility classes in `index.html` plus custom CSS:
+- `styles.css` (global layout and animations)
+- `consultation.css` (form + modal, stage selection indicators, responsive modal)
+- `results.css`, `treatment-styles.css`, `faq-footer.css`, `roadmap.css`
 
 ## Security Considerations
 
@@ -188,7 +137,7 @@ All styling is done with Tailwind CSS classes. Custom styles are in `styles.css`
 ### Form Not Working
 1. Check browser console for JavaScript errors
 2. Verify all form field IDs match the JavaScript
-3. Ensure the server is running on the correct port
+3. Ensure EmailJS keys are correct and the SDK is loaded
 
 ### Styling Issues
 1. Check if Tailwind CSS is loading properly
@@ -198,6 +147,17 @@ All styling is done with Tailwind CSS classes. Custom styles are in `styles.css`
 ## Support
 
 For issues or questions, please check the troubleshooting section above or contact the development team.
+
+## Recent Updates
+
+- Light blue global background, removed conflicting per-section backgrounds
+- Added consultation modal (opens on load), unified with section form
+- Stage selection visuals with CSS-only checkmark in popup
+- Results slideshow updated to `patient_results1.webp` … `patient_results4.webp`
+- Mobile menu now auto-closes after selecting a link
+- Always start at top/first section on reload
+- Responsive modal adjustments for small screens and cohesive desktop card
+- Global centering and layout hardening to avoid left shift on mobile/tablet
 
 ## License
 
