@@ -1,28 +1,71 @@
+@import "tailwindcss";
 /* Animations */
 body {
   margin: 0;
-  padding: 0; 
+  padding: 0;
   /* overflow-x: hidden; */
 }
 
-
 /* Ensure all Tailwind containers center even if overridden elsewhere */
-.max-w-7xl { margin-left: auto; margin-right: auto; }
-.mx-auto { margin-left: auto !important; margin-right: auto !important; }
+.max-w-7xl {
+  margin-left: auto;
+  margin-right: auto;
+}
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
 
-
-.fade-up, .fade-up-contact {
+.fade-up,
+.fade-up-contact {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.fade-up.active, .fade-up-contact.active, .fade-up-contact.fade-up-show, .fade-up-testimonial.active, .fade-up-roadmap.active, .fade-up-faq.active, .fade-up-footer.active {
+.fade-up.active,
+.fade-up-contact.active,
+.fade-up-contact.fade-up-show,
+.fade-up-testimonial.active,
+.fade-up-roadmap.active,
+.fade-up-faq.active,
+.fade-up-footer.active {
   opacity: 1;
   transform: translateY(0);
 }
 
-a:hover{
-  text-decoration: underline;
-  transition: 2s;
+
+/* Navbar link hover: animated underline without layout shift */
+.nav-link,
+.mobile-nav-link {
+  position: relative;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.nav-link::after,
+.mobile-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #00364a;
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible,
+.mobile-nav-link:hover,
+.mobile-nav-link:focus-visible {
+  color: #00364a;
+  text-decoration: none;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after,
+.mobile-nav-link:hover::after,
+.mobile-nav-link:focus-visible::after {
+  width: 100%;
 }

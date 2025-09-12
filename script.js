@@ -122,7 +122,17 @@ document.addEventListener('DOMContentLoaded', function() {
       mainImage: 'assests/patient_results4.webp',
       beforeImages: ['assests/patient_results4.webp', 'assests/patient_results4.webp'],
       grafts: '3500 Grafts'
-    }
+    },
+    {
+      mainImage: 'assests/patient_results5.webp',
+      beforeImages: ['assests/patient_results5.webp', 'assests/patient_results5.webp'],
+      grafts: '3500 Grafts'
+    },
+    {
+      mainImage: 'assests/patient_results6.webp',
+      beforeImages: ['assests/patient_results6.webp', 'assests/patient_results6.webp'],
+      grafts: '3500 Grafts'
+    },
   ];
 
   function showResultsSlide(index) {
