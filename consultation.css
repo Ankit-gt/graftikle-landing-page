@@ -141,44 +141,96 @@
   font-weight: 700;
 }
 
-/* Responsive modal container: keep content within viewport */
-#consultation-modal > div {
-  max-height: none;
-  overflow: visible;
-}
-
-/* Reduce padding and gaps on small screens */
-@media (max-width: 480px) {
-  #consultation-modal .p-6 {
-    padding: 1rem; /* override Tailwind utility inside modal scope */
+/* Mobile-only responsive fixes for consultation modal */
+@media (max-width: 640px) {
+  #consultation-modal {
+    padding: 0.75rem;
   }
+  
+  #consultation-modal > div {
+    max-height: 95vh;
+    overflow-y: auto;
+    margin: 0;
+    /* Hide scrollbar on mobile */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  
+  /* Ensure close button is always visible on mobile */
+  #consultation-modal button[id="close-consultation-modal"] {
+    position: absolute !important;
+    top: 8px !important;
+    right: 8px !important;
+    z-index: 30 !important;
+    width: 32px !important;
+    height: 32px !important;
+    background-color: #1f2937 !important;
+    border: 2px solid white !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  /* Hide scrollbar for Webkit browsers (Chrome, Safari, etc.) */
+  #consultation-modal > div::-webkit-scrollbar {
+    display: none;
+  }
+  
+  #consultation-modal .p-3 {
+    padding: 0.75rem;
+  }
+  
+  #consultation-modal .space-y-4 > * + * {
+    margin-top: 0.75rem;
+  }
+  
   #consultation-modal .grid {
-    gap: 0.75rem; /* tighter gaps on very small screens */
+    gap: 0.5rem;
   }
+  
   #consultation-modal .baldness-option img {
-    height: 64px;
-    width: 64px;
+    height: 3rem;
+    width: 100%;
   }
+  
+  #consultation-modal .baldness-option > div {
+    padding: 0.5rem;
+  }
+  
   #consultation-modal button[type="submit"] {
-    padding-top: 0.65rem;
-    padding-bottom: 0.65rem;
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
   }
-}
-
-@media (min-width: 481px) and (max-width: 768px) {
-  #consultation-modal .p-6 {
-    padding: 1.25rem;
+  
+  #consultation-modal input {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
   }
-  #consultation-modal .baldness-option img {
-    height: 72px;
-    width: 72px;
+  
+  #consultation-modal label {
+    font-size: 0.875rem;
   }
-}
-
-@media (min-width: 769px) {
-  #consultation-modal .baldness-option img {
-    height: 80px;
-    width: 80px;
+  
+  /* Mobile hair loss stage options styling */
+  #consultation-modal .baldness-option:has(input:checked) > div {
+    border-color: #00364A !important;
+    background-color: #f0f9ff;
+    box-shadow: 0 4px 12px rgba(0, 54, 74, 0.15);
+  }
+  
+  #consultation-modal .baldness-option:has(input:checked) > div::after {
+    content: "✓";
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 16px;
+    height: 16px;
+    background-color: #00364A;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
   }
 }
 

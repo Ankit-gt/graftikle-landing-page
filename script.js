@@ -748,6 +748,7 @@ Additional Information: ${message || 'None'}
     question.addEventListener('click', () => {
       const answer = question.nextElementSibling;
       const icon = question.querySelector('.faq-icon');
+      const faqItem = question.closest('.faq-item');
       
       // Toggle active class on answer
       answer.classList.toggle('active');
@@ -755,14 +756,19 @@ Additional Information: ${message || 'None'}
       // Toggle icon rotation
       icon.classList.toggle('active');
       
+      // Toggle active class on FAQ item for styling
+      faqItem.classList.toggle('active');
+      
       // Close other open FAQ items
       faqQuestions.forEach(otherQuestion => {
         if (otherQuestion !== question) {
           const otherAnswer = otherQuestion.nextElementSibling;
           const otherIcon = otherQuestion.querySelector('.faq-icon');
+          const otherFaqItem = otherQuestion.closest('.faq-item');
           
           otherAnswer.classList.remove('active');
           otherIcon.classList.remove('active');
+          otherFaqItem.classList.remove('active');
         }
       });
     });

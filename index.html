@@ -138,10 +138,7 @@
         <div class="flex justify-between items-center h-16">
           <!-- Logo -->
             <div class="flex items-center space-x-2 animate-fade-in logo-hover">
-            <div 
-            
-
-            >
+            <div >
               <img src="assests/logo.png" alt="Graftikle Logo" class="w-6 h-6 object-contain">
             </div>
             <span class="text-xl font-bold text-gray-800">Graftikle</span>
@@ -1637,80 +1634,108 @@
       </div>
     </footer>
 
-
-      
-  
-
     <!-- Consultation Modal -->
-    <div id="consultation-modal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[9999]">
-      <div class="relative bg-white w-full max-w-2xl rounded-xl shadow-2xl mx-4">
+    <div id="consultation-modal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[9999] p-3 sm:p-0">
+      <div class="relative bg-white w-full max-w-sm sm:max-w-2xl rounded-xl shadow-2xl mx-1 sm:mx-0 max-h-[95vh] sm:max-h-none overflow-y-auto sm:overflow-visible">
         <button id="close-consultation-modal" aria-label="Close"
-          class="absolute -top-3 -right-3 bg-gray-800 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-700">
+          class="absolute top-2 right-2 sm:-top-3 sm:-right-3 bg-gray-800 text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-700 z-20">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
-        <div class="p-6">
-          <div class="text-center mb-6">
-            <div class="inline-flex items-center px-4 py-2 bg-blue-50 text-primary rounded-full text-sm font-medium mb-4">
-              <span class="w-2 h-2 bg-primary rounded-full mr-2"></span>
+        <div class="p-3 sm:p-6">
+          <div class="text-center mb-3 sm:mb-6">
+            <div class="inline-flex items-center px-2 py-1 sm:px-4 sm:py-2 bg-blue-50 text-primary rounded-full text-xs sm:text-sm font-medium mb-2 sm:mb-4">
+              <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full mr-1 sm:mr-2"></span>
               Quick Consultation
             </div>
-            <h3 class="text-2xl font-bold text-gray-900">Take an Appointment</h3>
+            <h3 class="text-base sm:text-2xl font-bold text-gray-900">Take an Appointment</h3>
           </div>
           <form id="consultation-form-modal" class="space-y-4" data-consultation="true">
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
               <input type="text" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">Age</label>
-                <input type="number" name="age" min="18" max="100" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required>
+                <input type="number" name="age" min="18" max="100" class="w-full px-3 py-2 sm:px-4 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary text-sm sm:text-base" required>
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">Location</label>
-                <input type="text" name="location" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required>
+                <input type="text" name="location" class="w-full px-3 py-2 sm:px-4 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary text-sm sm:text-base" required>
               </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">Mobile Number</label>
-                <input type="tel" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required>
+                <input type="tel" name="phone" class="w-full px-3 py-2 sm:px-4 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary text-sm sm:text-base" required>
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">Email ID</label>
-                <input type="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary" required>
+                <input type="email" name="email" class="w-full px-3 py-2 sm:px-4 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary text-sm sm:text-base" required>
               </div>
             </div>
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-3">Hair Loss Level</label>
-              <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <!-- Mobile: Text-only options -->
+              <div class="grid grid-cols-2 gap-2 sm:hidden">
                 <label class="baldness-option cursor-pointer">
-                  <div class="border-2 border-gray-200 rounded-lg p-3 transition-all duration-300 hover:shadow-md relative">
-                    <img src="assests/Hair-Loss-Stages (1).jpg" alt="Stage 1 Hair Loss" class="w-full h-auto object-cover aspect-square">
-                    <div class="mt-2 text-center text-sm font-medium">Stage 1</div>
+                  <div class="border-2 border-gray-200 rounded-lg p-3 transition-all duration-300 hover:shadow-md relative text-center">
+                    <div class="text-sm font-medium">Stage 1</div>
+                    <div class="text-xs text-gray-500 mt-1">Minimal</div>
                   </div>
                   <input type="radio" name="hairLossLevel" value="Stage 1" class="hidden" checked>
                 </label>
                 <label class="baldness-option cursor-pointer">
-                  <div class="border-2 border-gray-200 rounded-lg p-3 transition-all duration-300 hover:shadow-md relative">
-                    <img src="assests/Hair-Loss-Stages (2).jpg" alt="Stage 2 Hair Loss" class="w-full h-auto object-cover aspect-square">
-                    <div class="mt-2 text-center text-sm font-medium">Stage 2</div>
+                  <div class="border-2 border-gray-200 rounded-lg p-3 transition-all duration-300 hover:shadow-md relative text-center">
+                    <div class="text-sm font-medium">Stage 2</div>
+                    <div class="text-xs text-gray-500 mt-1">Mild</div>
                   </div>
                   <input type="radio" name="hairLossLevel" value="Stage 2" class="hidden">
                 </label>
                 <label class="baldness-option cursor-pointer">
-                  <div class="border-2 border-gray-200 rounded-lg p-3 transition-all duration-300 hover:shadow-md relative">
-                    <img src="assests/Hair-Loss-Stages (3).jpg" alt="Stage 3 Hair Loss" class="w-full h-auto object-cover aspect-square">
-                    <div class="mt-2 text-center text-sm font-medium">Stage 3</div>
+                  <div class="border-2 border-gray-200 rounded-lg p-3 transition-all duration-300 hover:shadow-md relative text-center">
+                    <div class="text-sm font-medium">Stage 3</div>
+                    <div class="text-xs text-gray-500 mt-1">Moderate</div>
                   </div>
                   <input type="radio" name="hairLossLevel" value="Stage 3" class="hidden">
                 </label>
                 <label class="baldness-option cursor-pointer">
-                  <div class="border-2 border-gray-200 rounded-lg p-3 transition-all duration-300 hover:shadow-md relative">
-                    <img src="assests/Hair-Loss-Stages (4).jpg" alt="Stage 4 Hair Loss" class="w-full h-auto object-cover aspect-square">
-                    <div class="mt-2 text-center text-sm font-medium">Stage 4</div>
+                  <div class="border-2 border-gray-200 rounded-lg p-3 transition-all duration-300 hover:shadow-md relative text-center">
+                    <div class="text-sm font-medium">Stage 4</div>
+                    <div class="text-xs text-gray-500 mt-1">Advanced</div>
+                  </div>
+                  <input type="radio" name="hairLossLevel" value="Stage 4" class="hidden">
+                </label>
+              </div>
+              <!-- Desktop: Image options -->
+              <div class="hidden sm:grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4">
+                <label class="baldness-option cursor-pointer">
+                  <div class="border-2 border-gray-200 rounded-lg p-2 sm:p-3 transition-all duration-300 hover:shadow-md relative">
+                    <img src="assests/Hair-Loss-Stages (1).jpg" alt="Stage 1 Hair Loss" class="w-full h-12 sm:h-16 md:h-20 object-cover rounded">
+                    <div class="mt-1 sm:mt-2 text-center text-xs sm:text-sm font-medium">Stage 1</div>
+                  </div>
+                  <input type="radio" name="hairLossLevel" value="Stage 1" class="hidden" checked>
+                </label>
+                <label class="baldness-option cursor-pointer">
+                  <div class="border-2 border-gray-200 rounded-lg p-2 sm:p-3 transition-all duration-300 hover:shadow-md relative">
+                    <img src="assests/Hair-Loss-Stages (2).jpg" alt="Stage 2 Hair Loss" class="w-full h-12 sm:h-16 md:h-20 object-cover rounded">
+                    <div class="mt-1 sm:mt-2 text-center text-xs sm:text-sm font-medium">Stage 2</div>
+                  </div>
+                  <input type="radio" name="hairLossLevel" value="Stage 2" class="hidden">
+                </label>
+                <label class="baldness-option cursor-pointer">
+                  <div class="border-2 border-gray-200 rounded-lg p-2 sm:p-3 transition-all duration-300 hover:shadow-md relative">
+                    <img src="assests/Hair-Loss-Stages (3).jpg" alt="Stage 3 Hair Loss" class="w-full h-12 sm:h-16 md:h-20 object-cover rounded">
+                    <div class="mt-1 sm:mt-2 text-center text-xs sm:text-sm font-medium">Stage 3</div>
+                  </div>
+                  <input type="radio" name="hairLossLevel" value="Stage 3" class="hidden">
+                </label>
+                <label class="baldness-option cursor-pointer">
+                  <div class="border-2 border-gray-200 rounded-lg p-2 sm:p-3 transition-all duration-300 hover:shadow-md relative">
+                    <img src="assests/Hair-Loss-Stages (4).jpg" alt="Stage 4 Hair Loss" class="w-full h-12 sm:h-16 md:h-20 object-cover rounded">
+                    <div class="mt-1 sm:mt-2 text-center text-xs sm:text-sm font-medium">Stage 4</div>
                   </div>
                   <input type="radio" name="hairLossLevel" value="Stage 4" class="hidden">
                 </label>
