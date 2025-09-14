@@ -40,6 +40,21 @@
 }
 
 /* Form Elements */
+#consultation-form input,
+#consultation-form textarea {
+  caret-color: #00364A; /* Set default cursor/caret color */
+  color: #333; /* Ensure text is always visible */
+  transition: all 0.3s ease;
+}
+#consultation-modal input:hover,
+#consultation-modal textarea:hover {
+  caret-color: #00364A; /* Set default cursor/caret color */
+  color: #333; /* Ensure text is always visible */
+  transition: all 0.3s ease;
+  column-rule-color: #333;
+  cursor: default;
+}
+
 .baldness-option input[type="radio"]:checked + label > div {
   border-color: var(--color-primary) !important;
   background-color: #f0f9ff !important;
@@ -85,11 +100,20 @@
   flex-direction: column;
 }
 
-/* Form Input Focus Styles */
+/* Form Input Hover and Focus Styles */
+#consultation-form input:hover,
+#consultation-form textarea:hover {
+  border-color: #00364A;
+  color: #333; /* Ensure text color remains dark on hover */
+  caret-color: #00364A; /* Set cursor/caret color to primary color on hover */
+}
+
 #consultation-form input:focus,
 #consultation-form textarea:focus {
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(0, 54, 74, 0.1);
+  color: #333; /* Ensure text color remains dark */
+  caret-color: #00364A; /* Set cursor/caret color to primary color */
 }
 
 /* Submit Button Hover Effect */
